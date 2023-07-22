@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="page-wrapper">
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row row-deck row-cards">
+                <div class="col-md-6 col-12">
+                    <div class="card">
+                        <div class="card-body" style="height: 10rem">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="card">
+                        <div class="card-body" style="height: 10rem">
+                            img aca
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body row" style="height: 30rem">
+                            <div class="col-md-6">
+                            @if (ViewBag.UsuarioActivo != null)
+                            {
+                                <h3>Información del usuario:</h3>
+                                <p>Legajo: @ViewBag.UsuarioActivo.Id</p>
+                                <p>Nombre: @ViewBag.UsuarioActivo.Nombre</p>
+                                <p>Username: @ViewBag.UsuarioActivo.Apellido</p>
+                                <p>Username: @ViewBag.UsuarioActivo.UsuarioNombre</p>
+                                <p>Tareas: @ViewBag.UsuarioActivo.Tareas.Count</p>
+
+                                <!-- Agrega más detalles del usuario según sea necesario -->
+                            }
+                            else
+                            {
+                                <p>Empresa: Todo Arreglos</p>
+                                <p>Cantidad de empleados: 12</p>
+                                <p>Tareas actuales: 22</p>
+                            }
+                            </div>
+                            <div class="col-md-4">
+                                <canvas id="estadoTareasChartByUsu"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+    var id = '@(ViewBag.UsuarioActivo?.Id ?? 0)';
+
+    $.ajax({
+        url: '@Url.Action("ObtenerDatosEstadosTareas", "Home")' + '?id=' + id,
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            // Crea el gráfico circular utilizando los datos obtenidos
+            var ctx = document.getElementById('estadoTareasChartByUsu').getContext('2d');
+            var estadoTareasChartByUsu = new Chart(ctx, {
+                type: 'doughnut',
+                data: data,
+                options: {
+                    responsive: true,
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Distribución de estados de las tareas'
+                    }
+                }
+            });
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+});
+</script>

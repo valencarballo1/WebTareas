@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "VerTodasLasTareas";
+}
+<link href="~/Content/VerTareas.css" rel="stylesheet" />
+<div id="pricing-table" class="clear row">
+
+</div>
+<script>
+  var id = '@(ViewBag.UsuarioActivo?.Id ?? 0)';
+  console.log(id);
+  $(document).ready(function () {
+    $.ajax({
+      url: '@Url.Action("TodasLasTareas", "Tareas")',
+      type: 'GET',
+      dataType: 'json',
+      success: function (data) {
+        // Recorre los datos obtenidos de la API
+        $.each(data, function (index, tarea) {
+          // Obtén el valor de tiempo Unix desde la base de datos
+          var fechaUnix = tarea.FechaInicio;
+
+          // Crea un objeto de fecha a partir del valor de tiempo Unix
+          var fecha = new Date(parseInt(fechaUnix.substr(6)));
+
+          // Obtén los componentes de la fecha
+          var dia = fecha.getDate();
+          var mes = fecha.getMonth() + 1; // Los meses se indexan desde 0, por lo que se suma 1
+          var año = fecha.getFullYear();
+
+          // Formatea la fecha en el formato deseado (por ejemplo, DD/MM/AAAA)
+          var fechaFormateada = dia + '/' + mes + '/' + año;
+
+          // Crea el contenido HTML para cada tarea
+          var planHtml = '<div class="col-md-4 mb-4">' +
+            '<div class="card rounded">' +
+            '<div class="card-body">' +
+            '<h5 class="card-title">' + tarea.IdTarea + '<span class="text-muted"> ' + tarea.UsuarioNombre + '</span></h5>' +
+            '<a class="btn btn-primary btn-sm" href="' + tarea.IdTarea + '">Finalizar</a>' +
+            '<ul class="list-unstyled mt-3">' +
+            '<li><strong>Fecha Inicio:</strong> ' + fechaFormateada + '</li>' +
+            '<li><strong>Estado:</strong> ' + tarea.EstadoNombre + '</li>' +
+            '<li><strong>Nombre tarea:</strong> ' + tarea.NombreTarea + '</li>' +
+            '<li><strong>Detalle:</strong> ' + tarea.Comentario + '</li>' +
+            '</ul>' +
+            '</div>' +
+            '</div>' +
+            '</div>';
+
+          // Agrega el plan al contenedor 'pricing-table'
+          $('#pricing-table').append(planHtml);
+        });
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    });
+  });
+</script>
+

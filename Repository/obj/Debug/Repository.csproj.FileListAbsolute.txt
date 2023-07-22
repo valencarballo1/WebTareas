@@ -1,0 +1,15 @@
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\obj\Debug\Repository.csproj.AssemblyReference.cache
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\obj\Debug\Repository.csproj.CoreCompileInputs.cache
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\bin\Debug\Repository.dll.config
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\bin\Debug\Repository.dll
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\bin\Debug\Repository.pdb
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\bin\Debug\Dato.dll
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\bin\Debug\EntityFramework.dll
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\bin\Debug\Dato.pdb
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\bin\Debug\Dato.dll.config
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\bin\Debug\EntityFramework.xml
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\obj\Debug\Repository.csproj.CopyComplete
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\obj\Debug\Repository.dll
+C:\Users\valen\source\repos\ControlesTrabajo\Repository\obj\Debug\Repository.pdb

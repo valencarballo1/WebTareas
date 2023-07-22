@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "CrearNuevaTarea";
+}
+
+<h2>Crear Nueva Tarea</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <h2 class="text-center mb-4">Crear Nuevo Usuario</h2>
+            <form action="@Url.Action("NuevaTarea", "Tareas")" method="post">
+                <div class="form-group">
+                    <label for="IdRol">Usuario Asignado:</label>
+                    <select class="form-control" id="IdUsu" name="IdUsuario"></select>
+                </div>
+                <div class="form-group">
+                    <label for="Apellido">Nombre Tarea:</label>
+                    <input type="text" class="form-control" id="NombreTarea" name="NombreTarea">
+                </div>
+                <div class="form-group">
+                    <label for="Apellido">Comentario:</label>
+                    <input type="text" class="form-control" id="Comentario" name="Comentario">
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+       var id = '@(ViewBag.UsuarioActivo?.Id ?? 0)';
+       console.log(id);
+
+    $.ajax({
+    url: '@Url.Action("GetAll", "Usuario")',
+    type: 'GET',
+    dataType: 'json',
+    success: function(data) {
+        // Código para agregar las opciones al DropDownList
+        var dropdownList = $('#IdUsu'); // Reemplaza "IdRol" con el ID del elemento DropDownList en tu vista
+
+        console.log("Entra");
+        // Agregar las opciones al DropDownList
+        $.each(data, function (index, usu) {
+            dropdownList.append($('<option></option>').val(usu.Id).text(usu.UsuarioNombre));
+        });
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+        console.log("Error en la llamada AJAX: " + textStatus + ", " + errorThrown);
+    }
+    });
+
+
+    $('form').submit(function (event) {
+        event.preventDefault();
+
+        $.ajax({
+            url: '@Url.Action("NuevaTarea", "Tareas")',
+            type: 'POST',
+            dataType: 'json',
+            data: $(this).serialize(),
+            success: function (response) {
+                if (response.success) {
+                    mostrarAlertaExito(response.message);
+                } else {
+                    mostrarAlertaError(response.message);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                mostrarAlertaError("Error en la llamada AJAX: " + textStatus + ", " + errorThrown);
+            }
+        });
+    });
+
+    function mostrarAlertaExito(message) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Creación exitosa',
+            text: message,
+            showConfirmButton: false,
+            timer: 1500
+        }).then(function () {
+            window.location.href = '@Url.Action("CrearNuevaTarea", "Tareas")';
+        });
+    }
+
+    function mostrarAlertaError(message) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error al generar tarea',
+            text: message,
+            confirmButtonText: 'Cerrar'
+        });
+    }
+</script>

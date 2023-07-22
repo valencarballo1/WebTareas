@@ -1,0 +1,12 @@
+C:\Users\valen\source\repos\ControlesTrabajo\Dato\bin\Debug\Dato.dll.config
+C:\Users\valen\source\repos\ControlesTrabajo\Dato\bin\Debug\Dato.dll
+C:\Users\valen\source\repos\ControlesTrabajo\Dato\bin\Debug\Dato.pdb
+C:\Users\valen\source\repos\ControlesTrabajo\Dato\bin\Debug\EntityFramework.dll
+C:\Users\valen\source\repos\ControlesTrabajo\Dato\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\valen\source\repos\ControlesTrabajo\Dato\bin\Debug\EntityFramework.xml
+C:\Users\valen\source\repos\ControlesTrabajo\Dato\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\valen\source\repos\ControlesTrabajo\Dato\obj\Debug\Dato.csproj.AssemblyReference.cache
+C:\Users\valen\source\repos\ControlesTrabajo\Dato\obj\Debug\Dato.csproj.CoreCompileInputs.cache
+C:\Users\valen\source\repos\ControlesTrabajo\Dato\obj\Debug\Dato.csproj.CopyComplete
+C:\Users\valen\source\repos\ControlesTrabajo\Dato\obj\Debug\Dato.dll
+C:\Users\valen\source\repos\ControlesTrabajo\Dato\obj\Debug\Dato.pdb

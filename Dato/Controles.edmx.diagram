@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="614d96fada164812a779d14f13c052e9" Name="Diagram1">
+        <EntityTypeShape EntityType="ControlesModel.Estados" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlesModel.Roles" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlesModel.Usuarios" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="ControlesModel.FK__Usuarios__IdRol__4BAC3F29" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ControlesModel.Tareas" Width="1.5" PointX="5.25" PointY="2.625" />
+        <AssociationConnector Association="ControlesModel.FK__NuevasTar__IdEst__70DDC3D8" />
+        <AssociationConnector Association="ControlesModel.FK__NuevasTar__IdUsu__6FE99F9F" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
